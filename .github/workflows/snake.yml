@@ -10,6 +10,10 @@ on:
     branches:
       - main
 
+# Give GitHub Actions permission to push to the repository
+permissions:
+  contents: write
+
 jobs:
   generate:
     runs-on: ubuntu-latest
@@ -27,5 +31,6 @@ jobs:
         uses: crazy-max/ghaction-github-pages@v4
         with:
           build_dir: dist
+          target_branch: output
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
